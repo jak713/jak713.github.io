@@ -1,6 +1,19 @@
+@font-face {
+  font-family: DepartureMono; 
+  src: url('assets/DepartureMono-1.500/DepartureMono-Regular.woff'); 
+}
+
 body {
-    font-family:monospace;
+    font-family:DepartureMono;
     background-color: rgb(255, 255, 233);
+}
+
+.bio {
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    padding: 5px;
+    margin: 5px;
 }
 
 .pictureOfMe {
@@ -9,9 +22,20 @@ body {
 }
 
 .pictureOfMe img {
-    width: 40%;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    animation: FadeInPic 1s ease-in-out;
+}
+@keyframes FadeInPic {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 h1 {
@@ -40,18 +64,67 @@ h1 {
     text-decoration: none;
 }
 
+#catButton {
+    padding: 6px 15px;
+    translate: 40px;
+}
+
+#catButton:hover {
+    background-color: rgb(255, 255, 233);
+}
+
+#catButton:hover img {
+    animation: AnimateLick 2s infinite;
+}
+@keyframes AnimateLick {
+    0% {
+        content: url('assets/cat-assets/lick/cat_02d-16.png');
+    }
+    15% {
+        content: url('assets/cat-assets/lick/cat_02d-17.png');
+    }
+    30% {
+        content: url('assets/cat-assets/lick/cat_02d-18.png');
+    }
+    45% {
+        content: url('assets/cat-assets/lick/cat_02d-19.png');
+    }
+    60% {
+        content: url('assets/cat-assets/wash/cat_02d-24.png');
+    }
+    75% {
+        content: url('assets/cat-assets/wash/cat_02d-25.png');
+    }
+    90% {
+        content: url('assets/cat-assets/wash/cat_02d-26.png');
+    }
+    105% {
+        content: url('assets/cat-assets/wash/cat_02d-27.png');
+    }
+}
+
 .navbar li a:hover {
     background-color: rgb(58, 66, 91);
     color:rgb(255, 255, 255);
-    font-size: 14px;
+    font-size: 16px;
 }
-
 
 .aboutMe p{
     text-align: center;
-    display:block;
     padding-left: 30px;
     padding-right: 30px;
+    animation: MoveInRight 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes MoveInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .aboutMe a{
@@ -59,5 +132,17 @@ h1 {
 }
 
 .aboutMe a:hover {
-    color: rgb(123, 78, 89);
+    background: linear-gradient(to right, rgba(123, 78, 89, 0.426) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 0 0;
+    animation: HighlightLeftToRight 0.5s ease-in-out forwards;
+}
+@keyframes HighlightLeftToRight {
+    from {
+        background-position: 100% 0;
+    }
+    to {
+        background-position: 0 0;
+
+    }
 }

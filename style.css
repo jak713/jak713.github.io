@@ -1,6 +1,75 @@
 @font-face {
-  font-family: DepartureMono; 
-  src: url('assets/DepartureMono-1.500/DepartureMono-Regular.woff'); 
+    font-family: DepartureMono; 
+    src: url('assets/DepartureMono-1.500/DepartureMono-Regular.woff'); 
+}
+
+@keyframes CatLick {
+    0% {
+        content: url('assets/cat-assets/lick/cat_02d-16.png');
+    }
+    15% {
+        content: url('assets/cat-assets/lick/cat_02d-17.png');
+    }
+    30% {
+        content: url('assets/cat-assets/lick/cat_02d-18.png');
+    }
+    45% {
+        content: url('assets/cat-assets/lick/cat_02d-19.png');
+    }
+    60% {
+        content: url('assets/cat-assets/wash/cat_02d-24.png');
+    }
+    75% {
+        content: url('assets/cat-assets/wash/cat_02d-25.png');
+    }
+    90% {
+        content: url('assets/cat-assets/wash/cat_02d-26.png');
+    }
+    100% {
+        content: url('assets/cat-assets/wash/cat_02d-27.png');
+    }
+}
+
+@keyframes CatIdle {
+    0% {
+        content: url('assets/cat-assets/idle2/cat_02d-8.png');
+    }
+    33% {
+        content: url('assets/cat-assets/idle2/cat_02d-9.png');
+    }
+    66% {
+        content: url('assets/cat-assets/idle2/cat_02d-10.png');
+    }
+    100% {
+        content: url('assets/cat-assets/idle2/cat_02d-11.png');
+    }
+}
+
+@keyframes CatPounce {
+    0% {
+        content: url('assets/cat-assets/pounce/cat_02d-64.png');
+    }
+    14.28% {
+        content: url('assets/cat-assets/pounce/cat_02d-65.png');
+    }
+    28.56% {
+        content: url('assets/cat-assets/pounce/cat_02d-66.png');
+    }
+    42.84% {
+        content: url('assets/cat-assets/pounce/cat_02d-67.png');
+    }
+    57.12% {
+        content: url('assets/cat-assets/pounce/cat_02d-68.png');
+    }
+    71.4% {
+        content: url('assets/cat-assets/pounce/cat_02d-69.png');
+    }
+    85.68% {
+        content: url('assets/cat-assets/pounce/cat_02d-70.png');
+    }
+    100% {
+        content: url('assets/cat-assets/pounce/cat_02d-70.png');
+    }
 }
 
 body {
@@ -74,39 +143,33 @@ h1 {
 }
 
 #catButton:hover img {
-    animation: AnimateLick 2s infinite;
-}
-@keyframes AnimateLick {
-    0% {
-        content: url('assets/cat-assets/lick/cat_02d-16.png');
-    }
-    15% {
-        content: url('assets/cat-assets/lick/cat_02d-17.png');
-    }
-    30% {
-        content: url('assets/cat-assets/lick/cat_02d-18.png');
-    }
-    45% {
-        content: url('assets/cat-assets/lick/cat_02d-19.png');
-    }
-    60% {
-        content: url('assets/cat-assets/wash/cat_02d-24.png');
-    }
-    75% {
-        content: url('assets/cat-assets/wash/cat_02d-25.png');
-    }
-    90% {
-        content: url('assets/cat-assets/wash/cat_02d-26.png');
-    }
-    105% {
-        content: url('assets/cat-assets/wash/cat_02d-27.png');
-    }
+    animation: CatLick 1.5s infinite;
 }
 
-.navbar li a:hover {
-    background-color: rgb(58, 66, 91);
-    color:rgb(255, 255, 255);
+#catButton img {
+    animation: CatIdle 0.7s infinite;
+}
+
+.navbar li a:hover:not(#catButton) {
+    background: linear-gradient(to right, rgba(58, 66, 91, 0.828) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 0 0;
+    animation: HighlightLeftToRight 0.5s ease-in-out forwards;
+
+    /* color: rgb(255, 255, 255); */
     font-size: 16px;
+}
+@keyframes HighlightLeftToRight {
+    from {
+        background-position: 100% 0;
+        color: black;
+
+    }
+    to {
+        background-position: 0 0;
+        color: white;
+
+    }
 }
 
 .aboutMe p{
@@ -132,17 +195,15 @@ h1 {
 }
 
 .aboutMe a:hover {
-    background: linear-gradient(to right, rgba(123, 78, 89, 0.426) 50%, transparent 50%);
+    background: linear-gradient(to right, rgba(123, 78, 89, 0.836) 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: 0 0;
     animation: HighlightLeftToRight 0.5s ease-in-out forwards;
 }
-@keyframes HighlightLeftToRight {
-    from {
-        background-position: 100% 0;
-    }
-    to {
-        background-position: 0 0;
 
-    }
+#runningCat {
+    position: absolute;
+    pointer-events: none;
+    transition: all 1s;
+    animation: CatPounce 1s ease-in-out infinite;
 }

@@ -2,7 +2,7 @@
     font-family: DepartureMono; 
     src: url('assets/DepartureMono-1.500/DepartureMono-Regular.woff'); 
 }
-
+/* Cat VERY BAD animations before I realised I did not have to chop the whole png up... Will get fixed later */
 @keyframes CatLick {
     0% {
         content: url('assets/cat-assets/lick/cat_02d-16.png');
@@ -75,42 +75,14 @@
 body {
     font-family:DepartureMono;
     background-color: rgb(255, 255, 233);
+    display: grid;
 }
 
-.bio {
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    padding: 5px;
-    margin: 5px;
+body::selection {
+    background-color: rgb(143, 157, 200);
 }
 
-.pictureOfMe {
-    text-align: center;
-    padding-top: 10px;
-}
-
-.pictureOfMe img {
-    width: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
-    border: 2px solid black;
-    animation: FadeInPic 1s ease-in-out;
-}
-@keyframes FadeInPic {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-h1 {
-    text-align: center;
-}
-
+/* navbar section */
 .navbar ul{
     list-style-type: none;
     margin: 0;
@@ -118,11 +90,17 @@ h1 {
     overflow: hidden;
     background-color: rgb(143, 157, 200);
     display: flex;
+    white-space: nowrap;
     justify-content: center;
     margin-left: -10px;
     margin-top: -10px;
     margin-right: -10px;
+}
 
+.navbar img:not(#catButton img) {
+    width: 16px; 
+    height: 16px; 
+    vertical-align: middle; 
 }
 
 .navbar li a {
@@ -131,7 +109,33 @@ h1 {
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
+    transition: background 0.2s, color 0.2s, font-size 0.2s; 
 }
+
+.navbar li:hover  a:not(#catButton) {
+    background: rgb(58, 66, 91);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    position: relative;
+    animation: Enlarge 0.2s ease-in-out forwards;
+}
+
+.navbar li a:not(#catButton):hover img {
+    filter: invert(1);
+}
+
+@keyframes Enlarge {
+    from {
+        transform: scale(1);
+    } 
+    to {
+        transform: scale(1.2) ;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+
+/* Cat-related styling and animations */
 
 #catButton {
     padding: 6px 15px;
@@ -150,26 +154,51 @@ h1 {
     animation: CatIdle 0.7s infinite;
 }
 
-.navbar li a:hover:not(#catButton) {
-    background: linear-gradient(to right, rgba(58, 66, 91, 0.828) 50%, transparent 50%);
-    background-size: 200% 100%;
-    background-position: 0 0;
-    animation: HighlightLeftToRight 0.5s ease-in-out forwards;
-
-    /* color: rgb(255, 255, 255); */
-    font-size: 16px;
+#runningCat {
+    position: absolute;
+    pointer-events: none;
+    transition: all 1s;
+    animation: CatPounce 1s ease-in-out infinite;
 }
-@keyframes HighlightLeftToRight {
-    from {
-        background-position: 100% 0;
-        color: black;
 
+
+/* bio/about me section */
+.bio {
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    padding: 5px;
+    margin: 5px;
+}
+
+
+.pictureOfMe {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.pictureOfMe img {
+    width: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    animation: FadeInPic 1s ease-in-out;
+    user-select: none;
+}
+
+@keyframes FadeInPic {
+    from {
+        opacity: 0;
     }
     to {
-        background-position: 0 0;
-        color: white;
-
+        opacity: 1;
     }
+}
+
+h1 {
+    text-align: center;
+
 }
 
 .aboutMe p{
@@ -195,15 +224,39 @@ h1 {
 }
 
 .aboutMe a:hover {
-    background: linear-gradient(to right, rgba(123, 78, 89, 0.836) 50%, transparent 50%);
+    background: linear-gradient(to right, rgba(123, 78, 89, 0.516) 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: 0 0;
     animation: HighlightLeftToRight 0.5s ease-in-out forwards;
 }
+@keyframes HighlightLeftToRight {
+    from {
+        background-position: 100% 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
 
-#runningCat {
-    position: absolute;
-    pointer-events: none;
-    transition: all 1s;
-    animation: CatPounce 1s ease-in-out infinite;
+.jak713 {
+    font-size: 12px;
+    float: right;
+}
+
+/* div/box for skills/interests/etc...  */
+.currentInterests table {
+    border: 2px black solid;
+    margin: 5px;
+    padding: 10px;
+    text-align: left;
+    display: inline-block;
+}
+
+.currentInterests table th {
+    column-span: 5;
+}
+
+.currentInterests img {
+    width: 64px; 
+    height: 64px;
 }

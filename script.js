@@ -2,12 +2,7 @@
 let cat = document.getElementById("catButton");
 // to return to normal after pressing the button again
 let comeBackCat = cat.innerHTML;
-// save initial position of the cat
-let catRect = cat.getBoundingClientRect();
-let catInitialPosition = {
-    x: catRect.left + window.scrollX,
-    y: catRect.top + window.scrollY
-};
+
 
 let runningCat = document.createElement("div");
 // add class to set styling in css file
@@ -50,6 +45,7 @@ document.addEventListener('touchmove', (e) => {
     move(e);
 });
 
+
 let isClicked = false;
 cat.onclick = function() {
     if (!isClicked) {
@@ -58,6 +54,15 @@ cat.onclick = function() {
         cat.style.height = "36.5px";
         cat.style.background = "transparent";
         cat.style.backgroundColor = 'rgb(255, 255, 233)';
+        
+        // save initial position of the cat
+        let catRect = cat.getBoundingClientRect();
+        let catInitialPosition = {
+            x: catRect.left + window.scrollX,
+            y: catRect.top + window.scrollY
+        };
+        
+        // use this to give the appropriate starting position after click
         runningCat.style.left = catInitialPosition.x + "px";
         runningCat.style.top = catInitialPosition.y + "px";
         document.body.appendChild(runningCat);

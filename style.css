@@ -83,12 +83,18 @@ body::selection {
 }
 
 /* navbar section */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
 .navbar ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: rgb(143, 157, 200);
+    /* overflow: hidden; */ /* annoyingly this was the reason why my navbar idea was not working...*/
+    background-color: rgba(143, 157, 200, 0.885);
     display: flex;
     white-space: nowrap;
     justify-content: center;
@@ -129,8 +135,9 @@ body::selection {
         transform: scale(1);
     } 
     to {
-        transform: scale(1.2) ;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.1) ;
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.35);
+        border-radius: 1px;
     }
 }
 
@@ -138,8 +145,8 @@ body::selection {
 /* Cat-related styling and animations */
 
 #catButton {
-    padding: 6px 15px;
-    translate: 40px;
+    padding: 6px 20px;
+    z-index: 9999;
 }
 
 #catButton:hover {
@@ -159,6 +166,8 @@ body::selection {
     pointer-events: none;
     transition: all 1s;
     animation: CatPounce 1s ease-in-out infinite;
+    z-index: 9999;
+
 }
 
 
@@ -198,7 +207,23 @@ body::selection {
 
 h1 {
     text-align: center;
+    border-right: 3px solid;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    animation: 
+        typing 2s steps(40),
+        cursor .4s step-end infinite alternate;
+}
+@keyframes cursor {
+    50% {border-color: transparent}
+}
 
+@keyframes typing {
+    from {
+        width: 0%;
+        border-color: transparent;
+    }
 }
 
 .aboutMe p{
@@ -254,9 +279,17 @@ h1 {
 
 .currentInterests table th {
     column-span: 5;
+    border-bottom: 2px double black;
 }
 
 .currentInterests img {
     width: 64px; 
     height: 64px;
+    filter: grayscale(1) brightness(0.5) sepia(1) hue-rotate(180deg) saturate(1.52);
+    transition: 0.25s ease-in-out;
+}
+
+.currentInterests img:hover {
+    filter: none;
+    transition: 0.25s ease-in-out;
 }

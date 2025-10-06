@@ -55,11 +55,11 @@ cat.onclick = function() {
         cat.style.background = "transparent";
         cat.style.backgroundColor = 'rgb(255, 255, 233)';
         
-        // save initial position of the cat
+        // save initial position of the cat box and ajust for where the cat img is (due to padding)
         let catRect = cat.getBoundingClientRect();
         let catInitialPosition = {
-            x: catRect.left + window.scrollX,
-            y: catRect.top + window.scrollY
+            x: catRect.left + window.scrollX + 40,
+            y: catRect.top + window.scrollY + 6
         };
         
         // use this to give the appropriate starting position after click

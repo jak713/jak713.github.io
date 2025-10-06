@@ -82,8 +82,14 @@ body::selection {
     background-color: rgb(143, 157, 200);
 }
 
-/* navbar section */
+footer {
+    text-align: center;
+    font-size: x-small;
+    color: rgba(123, 78, 89, 1);
+}
 
+
+/* navbar section */
 .navbar {
     position: sticky;
     top: 0;
@@ -143,9 +149,8 @@ body::selection {
 
 
 /* Cat-related styling and animations */
-
 #catButton {
-    padding: 6px 20px;
+    padding: 6px 40px;
     z-index: 9999;
 }
 
@@ -167,7 +172,6 @@ body::selection {
     transition: all 1s;
     animation: CatPounce 1s ease-in-out infinite;
     z-index: 9999;
-
 }
 
 
@@ -222,7 +226,6 @@ h1 {
 @keyframes typing {
     from {
         width: 0%;
-        border-color: transparent;
     }
 }
 
@@ -269,7 +272,11 @@ h1 {
 }
 
 /* div/box for skills/interests/etc...  */
-.currentInterests table {
+.secondSection {
+    display: flex;
+}
+
+table {
     border: 2px black solid;
     margin: 5px;
     padding: 10px;
@@ -277,7 +284,7 @@ h1 {
     display: inline-block;
 }
 
-.currentInterests table th {
+table th {
     column-span: 5;
     border-bottom: 2px double black;
 }
@@ -292,4 +299,22 @@ h1 {
 .currentInterests img:hover {
     filter: none;
     transition: 0.25s ease-in-out;
+    transform: scale(1.1);
+/* find way to make "tooltip" visible */
+}
+
+
+.currentlyReading img {
+    padding: 2px;
+    margin: 5px;
+    transition: 0.25s ease-in-out;
+    width: 200px;
+    height: auto;
+    filter: grayscale(1) brightness(0.5) sepia(1) hue-rotate(180deg) saturate(1.52);
+}
+
+.currentlyReading img:hover {
+    filter: none;
+    transition: 0.25s ease-in-out;
+    transform: scale(1.1);
 }

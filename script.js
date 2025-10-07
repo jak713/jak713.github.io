@@ -28,7 +28,7 @@ const move = (e) => {
     try{
         // PageX and PageY return the position of client's cursor from top left of screen
         var x = !isTouchDevice() ? e.pageX - 20 : e.touches[0].pageX - 20;
-        var y = !isTouchDevice() ? e.pageY - 20 : e.touches[0].pageY - 20;
+        var y = !isTouchDevice() ? e.pageY - 25 : e.touches[0].pageY - 25;
     } catch (e) {}
 
 runningCat.style.left = x + "px";

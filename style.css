@@ -318,3 +318,181 @@ table th {
     transition: 0.25s ease-in-out;
     transform: scale(1.1);
 }
+
+.CSSDrawing {
+    background: linear-gradient(#c39ad8,skyblue);
+    height: 350px;
+    width: 600px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 4px solid #ffd700;
+    box-shadow: 0 0 0 6px #ffd90064, 0 0 0 10px rgba(255, 217, 0, 0.427);
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    position: relative;
+    animation: Day 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
+
+.CSSDrawing:hover {
+    animation: Night 0.5s ease-in-out forwards;
+}
+@keyframes Night {
+    0% {
+        background: linear-gradient(#c39ad8,skyblue);
+    }
+    20% {
+        background: linear-gradient(#b18ccf,#9bbbe2);
+    }
+    40% {
+        background: linear-gradient(#a07bb8,#7ec9e6);
+    }
+    60% {
+        background: linear-gradient(#6a3c9c,#3b7fa6);
+    }
+    80% {
+        background: linear-gradient(#4d2787,#4689b0);
+    }
+    100% {
+        background: linear-gradient(#401c77,rgb(53, 124, 152));
+    }
+}
+
+@keyframes Day {
+    0% {
+        background: linear-gradient(#401c77,rgb(53, 124, 152));
+    }
+    20% {
+        background: linear-gradient(#4d2787,#4689b0);
+    }
+    40% {
+        background: linear-gradient(#6a3c9c,#3b7fa6);
+    }
+    60% {
+        background: linear-gradient(#a07bb8,#7ec9e6);
+    }
+    80% {
+        background: linear-gradient(#b18ccf,#9bbbe2);
+    }
+    100% {
+        background: linear-gradient(#c39ad8,skyblue);
+    }
+}
+
+.Sun {
+    transition: 1s ease-in-out;
+    animation: Sunrise 1s ease-in-out;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 40px;
+    padding: 30px;
+    background: 
+    radial-gradient(#f9cf00, #eda600);
+}
+@keyframes Sunrise {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+.CSSDrawing:hover .Sun {
+    box-shadow: inset 16px 0px #777, inset 16px 0px 1px 2px #777;
+    -moz-box-shadow: inset 16px 0px #777, inset 16px 0px 1px 2px #777;
+    background: transparent;
+    animation: 2s ease-in-out;
+    transform: rotate(-25deg);
+}
+
+.Stars {
+    transition: 1s ease-in-out;
+    border-radius: 50%;
+    height: 3px;
+    width: 3px;
+    background-color: white;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.335);
+    opacity: 0;
+    position: relative;
+}
+
+.CSSDrawing:hover .Stars {
+    opacity: 1;
+    transition: 1s ease-in-out;
+}
+
+.Mountain1 {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 200px solid #424242;
+    position: absolute; 
+    left: 0; 
+    bottom: 0; 
+    transition: 1s ease-in-out;
+}
+
+.CSSDrawing:hover .Mountain1 {
+    border-bottom-color: #000000;
+    transition: 1s ease-in-out;
+}
+
+.Mountain2 {
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 120px solid #440524;
+    position: absolute; 
+    left: 0; 
+    bottom: 0; 
+    transition: 1s ease-in-out;
+}
+
+.CSSDrawing:hover .Mountain2 {
+    border-bottom-color: #363636;
+    transition: 1s ease-in-out;
+}
+
+.cloud1 {
+    height: 50px; 
+    width: 80px;
+    bottom: 190px;
+    left: 20px;
+    position: relative;
+    aspect-ratio: 2;
+    --g: radial-gradient(50% 50%, #000 98%, #0000) no-repeat;
+    mask: var(--g) 100% 100%/30% 60%,var(--g) 70% 0/50% 100%,var(--g) 0 100%/36% 68%,var(--g) 27% 18%/26% 40%,linear-gradient(#000 0 0) bottom/67% 58% no-repeat;
+    background: #ffffff8a;
+    transition: 1s ease-in-out;
+}
+
+.CSSDrawing:hover .cloud1 {
+    animation: moveLeft 1s ease-in-out forwards;
+}
+
+.CSSDrawing .cloud1 {
+    animation: moveBack 2s ease-in-out;
+}
+
+@keyframes moveLeft {
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes moveBack {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

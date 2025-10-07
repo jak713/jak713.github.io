@@ -76,6 +76,7 @@ body {
     font-family:DepartureMono;
     background-color: rgb(255, 255, 233);
     display: grid;
+    overflow-x: hidden;
 }
 
 body::selection {
@@ -382,7 +383,7 @@ table th {
 }
 
 .Sun {
-    transition: 1s ease-in-out;
+    transition: 2s ease-in-out;
     animation: Sunrise 1s ease-in-out;
     border-radius: 50%;
     height: 60px;
@@ -468,15 +469,12 @@ table th {
     --g: radial-gradient(50% 50%, #000 98%, #0000) no-repeat;
     mask: var(--g) 100% 100%/30% 60%,var(--g) 70% 0/50% 100%,var(--g) 0 100%/36% 68%,var(--g) 27% 18%/26% 40%,linear-gradient(#000 0 0) bottom/67% 58% no-repeat;
     background: #ffffff8a;
-    transition: 1s ease-in-out;
+    transition: 3s ease-in-out;
+    animation: moveBack 3s ease-in-out;
 }
 
 .CSSDrawing:hover .cloud1 {
     animation: moveLeft 1s ease-in-out forwards;
-}
-
-.CSSDrawing .cloud1 {
-    animation: moveBack 2s ease-in-out;
 }
 
 @keyframes moveLeft {

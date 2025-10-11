@@ -31,8 +31,14 @@ const move = (e) => {
         var y = !isTouchDevice() ? e.pageY - 25 : e.touches[0].pageY - 25;
     } catch (e) {}
 
-runningCat.style.left = x + "px";
-runningCat.style.top = y + "px";
+    if (x < runningCat.offsetLeft) {
+        runningCat.style.transform = "scaleX(-1)";
+    } else {
+        runningCat.style.transform = "scaleX(1)";
+    }
+
+    runningCat.style.left = x + "px";
+    runningCat.style.top = y + "px";
 };
 
 document.addEventListener("mousemove", (e) => {

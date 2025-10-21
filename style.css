@@ -7,13 +7,13 @@
     0% {
         content: url('assets/cat-assets/lick/cat_02d-16.png');
     }
-    15% {
+    12% {
         content: url('assets/cat-assets/lick/cat_02d-17.png');
     }
-    30% {
+    25% {
         content: url('assets/cat-assets/lick/cat_02d-18.png');
     }
-    45% {
+    40% {
         content: url('assets/cat-assets/lick/cat_02d-19.png');
     }
     60% {
@@ -22,7 +22,7 @@
     75% {
         content: url('assets/cat-assets/wash/cat_02d-25.png');
     }
-    90% {
+    80% {
         content: url('assets/cat-assets/wash/cat_02d-26.png');
     }
     100% {
@@ -71,6 +71,7 @@
         content: url('assets/cat-assets/pounce/cat_02d-70.png');
     }
 }
+
 
 body {
     font-family:DepartureMono;
@@ -275,19 +276,25 @@ h1 {
 /* div/box for skills/interests/etc...  */
 .secondSection {
     display: flex;
+    
 }
 
 table {
     border: 2px black solid;
     margin: 5px;
     padding: 10px;
-    text-align: left;
     display: inline-block;
+    text-align: center;
+
 }
 
 table th {
     column-span: 5;
     border-bottom: 2px double black;
+}
+
+table td {
+    white-space: nowrap;
 }
 
 .currentInterests img {
@@ -304,7 +311,6 @@ table th {
 /* find way to make "tooltip" visible */
 }
 
-
 .currentlyReading img {
     padding: 2px;
     margin: 5px;
@@ -319,6 +325,9 @@ table th {
     transition: 0.25s ease-in-out;
     transform: scale(1.1);
 }
+
+
+
 
 .CSSDrawing {
     background: linear-gradient(#c39ad8,skyblue);

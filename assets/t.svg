@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 158 166" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-miterlimit:1.5;">
+    <g transform="matrix(2.08333,0,0,2.08333,0,0)">
+        <g id="Artboard1" transform="matrix(0.917391,0,0,0.931154,-7.58798,-4.35398)">
+            <rect x="8.271" y="4.676" width="82.354" height="85.284" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="8.271" y="4.676" width="82.354" height="85.284"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(1.06942,0,0,1.06356,8.84158,4.92577)">
+                    <rect x="1.345" y="1.423" width="73.123" height="76.791" style="fill:rgb(235,235,235);fill-opacity:0;stroke:rgb(0,242,81);stroke-width:2.03px;"/>
+                </g>
+                <g transform="matrix(1.09005,0,0,1.07394,38.2667,35.3853)">
+                    <g transform="matrix(28,0,0,28,19.1632,21.7866)">
+                    </g>
+                    <text x="1.345px" y="21.787px" style="font-family:'DepartureMono-Regular', 'Departure Mono', monospace;font-size:28px;fill:rgb(0,242,80);stroke:rgb(0,242,81);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:2;">T</text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

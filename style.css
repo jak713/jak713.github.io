@@ -79,6 +79,24 @@ body {
     display: grid;
     overflow-x: hidden;
 }
+body a{
+    color: black;
+}
+
+body a:not(:has(img)):hover {
+    background: linear-gradient(to right, rgba(123, 78, 89, 0.516) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 0 0;
+    animation: HighlightLeftToRight 0.5s ease-in-out forwards;
+}
+@keyframes HighlightLeftToRight {
+    from {
+        background-position: 100% 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
 
 body::selection {
     background-color: rgb(143, 157, 200);
@@ -246,25 +264,6 @@ h1 {
     to {
         transform: translateX(0);
         opacity: 1;
-    }
-}
-
-.aboutMe a{
-    color: black;
-}
-
-.aboutMe a:hover {
-    background: linear-gradient(to right, rgba(123, 78, 89, 0.516) 50%, transparent 50%);
-    background-size: 200% 100%;
-    background-position: 0 0;
-    animation: HighlightLeftToRight 0.5s ease-in-out forwards;
-}
-@keyframes HighlightLeftToRight {
-    from {
-        background-position: 100% 0;
-    }
-    to {
-        background-position: 0 0;
     }
 }
 

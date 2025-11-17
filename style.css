@@ -78,6 +78,7 @@ body {
     background-color: rgb(255, 255, 233);
     display: grid;
     overflow-x: hidden;
+    margin: 0;
 }
 body a{
     color: black;

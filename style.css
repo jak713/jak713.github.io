@@ -77,8 +77,9 @@ body {
     font-family:DepartureMono;
     background-color: rgb(255, 255, 233);
     display: grid;
-    overflow-x: hidden
+    overflow-x: hidden;
 }
+
 body a{
     color: black;
 }
@@ -492,4 +493,172 @@ table td {
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+/* CSS style for system dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(30, 30, 30);
+        color: white;
+    }
+    .navbar ul {
+        background-color: rgb(58, 66, 91);
+    }
+
+    #catButton:hover {
+        background-color: rgb(30, 30, 30);
+    }
+
+    .bio {
+        border-color: white;
+    }
+
+    .pictureOfMe img {
+    border: 2px solid rgb(255, 255, 255);
+    }
+
+    table {
+        border-color: white;
+    }
+
+    table th {
+        border-bottom: 2px double rgb(254, 254, 254);
+    }
+
+    footer {
+        color: rgba(200, 200, 200, 0.7);
+    }
+
+    body a {
+        color: white;
+    }
+
+    body a:not(:has(img)):hover {
+        background: linear-gradient(to right, rgba(93, 195, 254, 0.516) 50%, transparent 50%);
+        background-size: 200% 100%;
+        background-position: 0 0;
+        animation: HighlightLeftToRight 0.5s ease-in-out forwards;
+    }
+
+    .currentInterests img {
+        filter: grayscale(1) brightness(0.9) sepia(1) hue-rotate(180deg) saturate(1.92);
+    }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: rgb(30, 30, 30);
+    color: white;
+}
+
+body.dark-mode a {
+    color: white;
+    }
+
+body.dark-mode .navbar ul {
+    background-color: rgb(58, 66, 91);
+}
+
+body.dark-mode .navbar a{
+    color: rgb(0, 0, 0);
+}
+
+body.dark-mode #catButton:hover {
+    background-color: rgb(30, 30, 30);
+}
+
+body.dark-mode .bio {
+    border-color: white;
+}
+
+body.dark-mode table {
+    border-color: white;
+}
+
+body.dark-mode table th {
+    border-bottom: 2px double rgb(254, 254, 254);
+}
+
+body.dark-mode footer {
+    color: rgba(200, 200, 200, 0.7);
+}
+
+body.dark-mode a:not(:has(img)):hover {
+    background: linear-gradient(to right, rgba(93, 195, 254, 0.516) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 0 0;
+    animation: HighlightLeftToRight 0.5s ease-in-out forwards;
+}
+
+body.dark-mode .currentInterests img {
+    width: 64px; 
+    height: 64px;
+    filter: grayscale(1) brightness(0.9) sepia(1) hue-rotate(180deg) saturate(1.92);
+    transition: 0.25s ease-in-out;
+}
+
+body.dark-mode .currentInterests img:hover {
+    filter: none;
+    transition: 0.25s ease-in-out;
+    transform: scale(1.1);
+}
+body.dark-mode .pictureOfMe img {
+    border: 2px solid rgb(255, 255, 255);
+}
+
+/* CSS drawing dark mode */
+body.dark-mode .CSSDrawing {
+    background: linear-gradient(#401c77, rgb(53, 124, 152));
+    animation: Night 1s ease-in-out;
+}
+
+body.dark-mode .CSSDrawing:hover {
+    animation: Day 0.5s ease-in-out forwards;
+}
+
+body.dark-mode .CSSDrawing:hover .Sun {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    background: radial-gradient(#f9cf00, #eda600);
+    transform: rotate(0deg);
+}
+
+body.dark-mode .CSSDrawing:hover .Stars {
+    opacity: 0;
+}
+
+body.dark-mode .CSSDrawing:hover .Mountain1 {
+    border-bottom-color: #424242;
+}
+
+body.dark-mode .CSSDrawing:hover .Mountain2 {
+    border-bottom-color: #440524;
+}
+
+body.dark-mode .CSSDrawing:hover .cloud1 {
+    animation: moveBack 1s ease-in-out forwards;
+}
+
+body.dark-mode .Sun {
+    background: transparent;
+    box-shadow: inset 16px 0px #777, inset 16px 0px 1px 2px #777;
+    -moz-box-shadow: inset 16px 0px #777, inset 16px 0px 1px 2px #777;
+    transform: rotate(-25deg);
+}
+
+body.dark-mode .Stars {
+    opacity: 1;
+}
+
+body.dark-mode .Mountain1 {
+    border-bottom-color: #000000;
+}
+
+body.dark-mode .Mountain2 {
+    border-bottom-color: #363636;
+}
+
+body.dark-mode .cloud1 {
+    animation: moveLeft 3s ease-in-out;
+    opacity: 0; 
 }

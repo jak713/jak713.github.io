@@ -3,7 +3,6 @@ let cat = document.getElementById("catButton");
 // to return to normal after pressing the button again
 let comeBackCat = cat.innerHTML;
 
-
 let runningCat = document.createElement("div");
 // add class to set styling in css file
 runningCat.id = "runningCat";
@@ -59,7 +58,7 @@ cat.onclick = function() {
         cat.style.width = "32px";
         cat.style.height = "36.5px";
         cat.style.background = "transparent";
-        cat.style.backgroundColor = 'rgb(255, 255, 233)';
+        cat.style.backgroundColor = getComputedStyle(document.body).backgroundColor;
         
         // save initial position of the cat box and ajust for where the cat img is (due to padding)
         let catRect = cat.getBoundingClientRect();
@@ -72,6 +71,7 @@ cat.onclick = function() {
         runningCat.style.left = catInitialPosition.x + "px";
         runningCat.style.top = catInitialPosition.y + "px";
         document.body.appendChild(runningCat);
+
     } else {
         cat.innerHTML = comeBackCat;
         cat.style.width = "";
@@ -81,4 +81,9 @@ cat.onclick = function() {
         document.body.removeChild(runningCat);
     }
     isClicked = !isClicked;
+};
+
+let darkModeToggle = document.getElementById("darkModeToggle");
+darkModeToggle.onclick = function() {
+    document.body.classList.toggle("dark-mode");
 };

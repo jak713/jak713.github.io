@@ -87,3 +87,18 @@ let darkModeToggle = document.getElementById("darkModeToggle");
 darkModeToggle.onclick = function() {
     document.body.classList.toggle("dark-mode");
 };
+
+// Courtesy of Claude:
+async function loadPost(postId) {
+    try {
+        const response = await fetch(`posts/${postId}.md`);
+        const markdown = await response.text();
+        const html = marked.parse(markdown);
+        document.getElementById('markdown-content').innerHTML = html;
+        
+        document.getElementById('index').style.display = 'none';
+        document.getElementById('content').classList.add('show');
+    } catch (error) {
+        document.getElementById('markdown-content').innerHTML = '<p>Error loading post.</p>';
+    }
+}

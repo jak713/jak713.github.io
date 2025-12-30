@@ -8,7 +8,11 @@ let runningCat = document.createElement("div");
 runningCat.id = "runningCat";
 // add the image source
 let catImage = document.createElement("img");
-catImage.src = "assets/cat-assets/pounce/cat_02d-64.png";
+try {
+    catImage.src = "assets/cat-assets/pounce/cat_02d-64.png";
+} catch (e) {
+    catImage.src = "../assets/cat-assets/pounce/cat_02d-64.png";
+}
 catImage.alt = "Cat Image";
 runningCat.appendChild(catImage);
 

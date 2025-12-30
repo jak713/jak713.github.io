@@ -212,7 +212,8 @@ footer {
 }
 
 .pictureOfMe img {
-    width: 300px;
+    width: 20%;
+    max-width: 300px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
@@ -323,8 +324,10 @@ table td {
 
 .CSSDrawing {
     background: linear-gradient(#c39ad8,skyblue);
-    height: 350px;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    max-height: 350px;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 15px;
@@ -336,6 +339,7 @@ table td {
     position: relative;
     animation: Day 1s ease-in-out;
     transition: 1s ease-in-out;
+    overflow: hidden;
 }
 
 .CSSDrawing:hover {
@@ -460,6 +464,24 @@ table td {
     transition: 1s ease-in-out;
 }
 
+.Mountain3 {
+    width: 0;
+    height: 0;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 180px solid #6b1a2a;
+    position: absolute; 
+    left: 270px; 
+    bottom: 20px; 
+    overflow: hidden;
+    transition: 1s ease-in-out;
+}
+
+.CSSDrawing:hover .Mountain3 {
+    border-bottom-color: #4a4a4a;
+    transition: 1s ease-in-out;
+}
+
 .cloud1 {
     height: 50px; 
     width: 80px;
@@ -495,6 +517,76 @@ table td {
         opacity: 1;
     }
 }
+
+/* Blog styling */
+.blogButton {
+    background: rgba(143, 157, 200, 0.885);
+    color: black;
+    border: 1px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.blogButton:hover {
+    background: rgb(58, 66, 91);
+    color: white;
+}
+
+body.dark-mode .blogButton {
+    background-color: rgb(58, 66, 91);
+    color: white;
+}
+
+/* Style inline code */
+#content code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/* Style code blocks */
+#content pre {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    max-width: 800px;
+    max-height: 400px;
+    margin: 10px 0;
+}
+
+#content pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+    font-size: 0.9em;
+}
+#content img {
+    max-width: 40%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#content img:hover {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.5);
+}
+
+#content {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: small;
+    max-width:80%;
+    margin: auto;
+    padding: 20px;
+}
+
 
 /* CSS style for system dark mode */
 @media (prefers-color-scheme: dark) {
@@ -543,6 +635,21 @@ table td {
 
     .currentInterests img {
         filter: grayscale(1) brightness(0.9) sepia(1) hue-rotate(180deg) saturate(1.92);
+    }
+
+    .blogButton {
+        background-color: rgb(58, 66, 91);
+    }
+
+    #content code {
+        background: #2d2d2d;
+    }
+    #content pre {
+        background: #2d2d2d;
+        border-color: #444;
+    }
+    #content img {
+        border: 1px solid white;
     }
 }
 
@@ -636,6 +743,10 @@ body.dark-mode .CSSDrawing:hover .Mountain2 {
     border-bottom-color: #440524;
 }
 
+body.dark-mode .CSSDrawing:hover .Mountain3 {
+    border-bottom-color: #6b1a2a;
+}
+
 body.dark-mode .CSSDrawing:hover .cloud1 {
     animation: moveBack 1s ease-in-out forwards;
 }
@@ -659,96 +770,13 @@ body.dark-mode .Mountain2 {
     border-bottom-color: #363636;
 }
 
+body.dark-mode .Mountain3 {
+    border-bottom-color: #4a4a4a;
+}
+
 body.dark-mode .cloud1 {
     animation: moveLeft 3s ease-in-out;
     opacity: 0; 
-}
-
-.blogButton {
-    background: rgba(143, 157, 200, 0.885);
-    color: black;
-    border: 1px solid black;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-}
-
-.blogButton:hover {
-    background: rgb(58, 66, 91);
-    color: white;
-}
-
-@media (prefers-color-scheme: dark) {
-    .blogButton {
-        background-color: rgb(58, 66, 91);
-    }
-}
-
-body.dark-mode .blogButton {
-    background-color: rgb(58, 66, 91);
-    color: white;
-}
-
-/* Style inline code */
-#content code {
-    background: #f4f4f4;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-family: monospace;
-}
-
-/* Style code blocks */
-#content pre {
-    background: #f4f4f4;
-    padding: 15px;
-    border-radius: 5px;
-    overflow: auto;
-    border: 1px solid #ddd;
-    max-width: 800px;
-    max-height: 400px;
-    margin: 10px 0;
-}
-
-#content pre code {
-    background: none;
-    padding: 0;
-    color: inherit;
-    font-size: 0.9em;
-}
-#content img {
-    max-width: 40%;
-    height: auto;
-    margin: 20px auto;
-    display: block;
-    border: 1px solid black;
-    padding: 5px;
-}
-
-#content img:hover {
-    transition: transform 0.3s ease-in-out;
-    transform: scale(1.5);
-}
-
-#content {
-    text-align: justify;
-    text-justify: inter-word;
-    font-size: small;
-    max-width:80%;
-    margin: auto;
-    padding: 20px;
-}
-
-@media (prefers-color-scheme: dark) {
-    #content code {
-        background: #2d2d2d;
-    }
-    #content pre {
-        background: #2d2d2d;
-        border-color: #444;
-    }
-    #content img {
-        border: 1px solid white;
-    }
 }
 
 body.dark-mode #content code {
@@ -760,4 +788,56 @@ body.dark-mode #content pre {
 }
 body.dark-mode #content img {
     border: 1px solid white;
+}
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer {
+        margin-top: auto;
+    }
+
+    .navbar ul {
+        padding: 0%;
+        flex-wrap: wrap;   }
+
+    .bio {
+        padding: 0px;
+    }
+
+    .CSSDrawing {
+        scale: 0.7;
+    }
+
+    .container h1 {
+        text-align: center;
+        animation: none;
+        border-right: none;
+        overflow: visible;
+        white-space: normal;
+        font-size: large;
+        width: 100%;
+    }
+    
+    .secondSection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .currentInterests img {
+        width: 12vw; 
+        height: 12vw;
+    }   
+
+    body.dark-mode .currentInterests img {
+        width: 12vw; 
+        height: 12vw;
+    }
+
 }

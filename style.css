@@ -840,4 +840,9 @@ body.dark-mode #content img {
         height: 12vw;
     }
 
+    #content img:hover {
+        transition: transform 0.3s ease-in-out;
+        transform: scale(2.5);
+    }
+
 }

@@ -87,10 +87,33 @@ cat.onclick = function() {
     isClicked = !isClicked;
 };
 
-let darkModeToggle = document.getElementById("darkModeToggle");
-darkModeToggle.onclick = function() {
-    document.body.classList.toggle("dark-mode");
-};
+
+const toggle = document.getElementById('darkModeToggle');
+const body = document.body;
+
+// Load saved preference
+if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+    toggle.setAttribute('aria-checked', 'true');
+}
+
+// Toggle event
+toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    
+    const isDark = body.classList.contains('dark-mode');
+    toggle.setAttribute('aria-checked', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// Check system preference on first visit
+if (!localStorage.getItem('theme')) {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        body.classList.add('dark-mode');
+        toggle.setAttribute('aria-checked', 'true');
+    }
+}
+
 
 // Courtesy of Claude:
 async function loadPost(postId) {

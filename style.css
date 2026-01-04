@@ -792,7 +792,7 @@ body.dark-mode #content img {
 
 
 /* Responsive design for smaller screens */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     body {
         min-height: 100vh;
         display: flex;
@@ -826,7 +826,7 @@ body.dark-mode #content img {
     }
     
     .secondSection {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
     }
 

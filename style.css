@@ -534,8 +534,12 @@ table td {
 }
 
 body.dark-mode .blogButton {
-    background-color: rgb(58, 66, 91);
+    background-color: rgba(88, 100, 138);
     color: white;
+}
+
+body.dark-mode .blogButton:hover {
+    background: rgb(58, 66, 91);
 }
 
 /* Style inline code */
@@ -595,7 +599,7 @@ body.dark-mode .blogButton {
         color: white;
     }
     .navbar ul {
-        background-color: rgb(58, 66, 91);
+        background-color: rgba(88, 100, 138, 0.885);
     }
 
     #catButton:hover {
@@ -638,7 +642,7 @@ body.dark-mode .blogButton {
     }
 
     .blogButton {
-        background-color: rgb(58, 66, 91);
+    background-color: rgba(88, 100, 138, 0.885);
     }
 
     #content code {
@@ -664,7 +668,7 @@ body.dark-mode a {
     }
 
 body.dark-mode .navbar ul {
-    background-color: rgb(58, 66, 91);
+    background-color: rgba(88, 100, 138, 0.885);
 }
 
 body.dark-mode .navbar a{

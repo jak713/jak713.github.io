@@ -9,6 +9,16 @@
     <title>Julia Kaczmarek | jak713 𓃠</title>
     <script type="module" src="https://md-block.verou.me/md-block.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/11.1.1/marked.min.js"></script>
+    <script>
+    MathJax = {
+        tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']]
+        }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
@@ -53,7 +63,8 @@
     <main class="blog-container">
         <h1>Blog Posts</h1>
         <ul class="blog-index">
-            <li><a href="#Beginning-Arduino-Journey">Beginning My Arduino Journey - Friday 26th December 2025</a></li>
+            <li><a href="#nci-visualisation-18-02-2026">Visualising Non-Covalent Interactions - Wednesday 18th February 2026</a></li>
+            <li><a href="#Arduino-26-12-2025">Beginning My Arduino Journey - Friday 26th December 2025</a></li>
         </ul>
     </main>
 
@@ -113,40 +124,52 @@
 <footer>In the making with love and a dream by Julia Kaczmarek © 2025-2026</footer>
 <script src="script.js"></script>
 <script>
+    // Function to load and render a blog post
+    async function loadPost(postId) {
+        try {
+            const response = await fetch(`posts/${postId}.md`);
+            const markdown = await response.text();
+            const html = marked.parse(markdown);
+            
+            document.getElementById('content').innerHTML = 
+                '<button class="blogButton" onclick="showIndex()">←</button>' + html;
+
+            document.querySelectorAll('#content pre code').forEach((block) => {
+                hljs.highlightElement(block);
+            });
+
+            MathJax.typesetPromise([document.getElementById('content')]); 
+            
+            document.getElementById('content').style.display = 'block';
+            document.querySelector('.blog-container').style.display = 'none';
+            
+        } catch (error) {
+            console.error('Error loading post:', error);
+            alert('Could not load blog post');
+        }
+    }
+
+    // Handle clicks on blog index links
     document.querySelectorAll('.blog-index a').forEach(link => {
         link.addEventListener('click', async function(e) {
             e.preventDefault();
             const postId = this.getAttribute('href').substring(1);
-            
-            try {
-                const response = await fetch(`posts/${postId}.md`);
-                const markdown = await response.text();
-                const html = marked.parse(markdown);
-                
-                // Add back button before the content
-                document.getElementById('content').innerHTML = 
-                    document.getElementById('content').innerHTML = 
-                    '<button  class="blogButton" onclick="showIndex()">← Back to Posts</button>' + html;
-
-                // Add syntax highlighting
-                document.querySelectorAll('#content pre code').forEach((block) => {
-                    hljs.highlightElement(block);
-                });
-                
-                document.getElementById('content').style.display = 'block';
-                document.querySelector('.blog-container').style.display = 'none';
-                
-            } catch (error) {
-                console.error('Error loading post:', error);
-                alert('Could not load blog post');
-            }
+            window.location.hash = postId;
+            await loadPost(postId);
         });
     });
+    
+    // Check for hash on page load and load post if present
+    if (window.location.hash) {
+        const postId = window.location.hash.substring(1);
+        loadPost(postId);
+    }
     
     // Function to go back to the index
     function showIndex() {
         document.querySelector('.blog-container').style.display = 'block';
         document.getElementById('content').style.display = 'none';
+        window.location.hash = '';
     }
 </script>
 </body>

@@ -241,5 +241,3 @@ The resulting output should look something like this:
 If you encounter any issues with any of the Python scripts in this tutorial, please let me know by raising an issue on GitHub.
 
 Hopefully this was useful. Good luck!
-
-

@@ -45,6 +45,7 @@ footer {
 }
 
 a,
+.cfg,
 .codewars,
 .github,
 .linkedin {
@@ -61,6 +62,10 @@ a {
   --link-color: var(--tn-blue);
 }
 
+.cfg {
+  --link-color: #E35795;
+}
+
 .codewars {
   --link-color: var(--tn-red);
 }
@@ -74,6 +79,7 @@ a {
 }
 
 a:hover,
+.cfg:hover,
 .codewars:hover,
 .github:hover,
 .linkedin:hover {

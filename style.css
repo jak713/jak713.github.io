@@ -18,18 +18,26 @@
     --tn-darker-grey: 	#414868;
     --tn-bg: 	#1a1b26;
 }
-  @font-face {
-  font-family: DepartureMono; 
-  src: url('assets/DepartureMono-1.500/DepartureMonoNerdFont-Regular.otf'); }
 
-  body {
+@font-face {
+  font-family: DepartureMono; 
+  src: url('assets/DepartureMono-1.500/DepartureMonoNerdFont-Regular.otf'); 
+}
+
+body {
   background: var(--tn-bg);
   color: var(--tn-lavender);
   font-family: DepartureMono;
   margin: 0;
   padding: 30px;
   font-size: 16px;
-  }
+}
+
+body::selection {
+  background-color: var(--tn-orange);
+  color: var(--tn-darker-grey);
+}
+
 
 footer {
   text-align: center;
@@ -37,38 +45,78 @@ footer {
   color: var(--tn-red);
 }
 
+a,
+.codewars,
+.github,
+.linkedin {
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  background-image: linear-gradient(var(--link-color), var(--link-color));
+  transition: background-size 0.5s ease-in-out;
+}
+
+a {
+  color: var(--tn-blue);
+  --link-color: var(--tn-blue);
+}
+
+.codewars {
+  --link-color: var(--tn-red);
+}
+
+.github {
+  --link-color: #0FBF3E;
+}
+
+.linkedin {
+  --link-color: #0077B5;
+}
+
+a:hover,
+.codewars:hover,
+.github:hover,
+.linkedin:hover {
+  background-size: 100% 2px;
+}
+
 .prompt {    
   font-size: 18px;
   line-height: 1.6;
-
   border-radius: 6px;
   white-space: pre;
   }
 
-  .path     { color: var(--tn-blue-light); }   
-  .plain    { color: var(--tn-lavender); } 
-  .branch   { color: var(--tn-purple); }   
-  .status   { color: var(--tn-red); } 
-  .crate    { color: var(--tn-orange);}
-  .node-icon { color: var(--tn-green); }   
-  .version   { color: var(--tn-green); }   
-  .starship    { color: var(--tn-green); }   
+.path     { color: var(--tn-blue-light); }   
+.plain    { color: var(--tn-lavender); } 
+.branch   { color: var(--tn-purple); }   
+.status   { color: var(--tn-red); } 
+.crate    { color: var(--tn-orange);}
+.node-icon { color: var(--tn-green); }   
+.version   { color: var(--tn-green); }   
+.starship    { color: var(--tn-green); }   
 
 .output {
   width: 100%;
-  max-width: 80ch;
+  max-width: 95ch;
   visibility: hidden; 
-  animation: appear 0.5s ease 1.5s forwards;
+  animation: appear 0s ease 2s forwards;
 }
 
-  .type {
+.type {
   display: inline-flex;
-  color: var(--tn-lavender-grey);
-  width: 5ch;
-  animation: typing 1s steps(5), blink .5s step-end infinite alternate;
+  color: var(--tn-lavender);
+  width: 15ch;
+  animation: typing 1.5s steps(10), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 10px solid var(--tn-lavender-grey);
+  border-right: 10px solid var(--tn-dark-blue-grey);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
 }
 
 @keyframes appear {
@@ -82,7 +130,7 @@ footer {
 
 @keyframes typing {
   0% { width: 0; }
-  100% { width: 5ch; }
+  100% { width: 15ch; }
 }
 
 @media (min-width:600px) {

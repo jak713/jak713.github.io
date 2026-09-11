@@ -42,6 +42,7 @@ footer {
   text-align: center;
   font-size: x-small;
   color: var(--tn-red);
+  margin-top: 50px;
 }
 
 a,

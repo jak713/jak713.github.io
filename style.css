@@ -62,6 +62,10 @@ a {
   --link-color: var(--tn-blue);
 }
 
+a:hover {
+    color: var(--tn-yellow);
+}
+
 .cfg {
   --link-color: #E35795;
 }
